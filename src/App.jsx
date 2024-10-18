@@ -144,7 +144,7 @@ box-sizing: border-box;">\n`;
     position: relative; ">
         <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div style="font-size: 0.5rem; max-width: 2rem; word-break: break-all;">${
+      <div style="font-size: 0.4rem; max-width: 2rem; word-break: break-all;">${
         parsedData.name
       }</div>
     </div>
@@ -213,7 +213,7 @@ box-sizing: border-box;">\n`;
     position: relative; ">
         <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div style="font-size: 0.5rem; max-width: 2rem; word-break: break-all;">${
+      <div style="font-size: 0.4rem; max-width: 2rem; word-break: break-all;">${
         parsedData.name
       }</div>
     </div>
@@ -650,7 +650,7 @@ const Chat = styled.div`
       & > div:nth-child(2) {
         word-break: break-all;
         max-width: 2rem;
-        font-size: 0.5rem;
+        font-size: 0.4rem;
         color: #eee;
       }
     }
