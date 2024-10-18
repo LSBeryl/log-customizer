@@ -107,7 +107,7 @@ export default function App() {
       const tailSet = new Set(tailColors);
       const msgSet = new Set(msgColors);
       const htmlFront = `<div style="background: #000;
-width: 330px; 
+width: 100%; 
 height: 500px; 
 color: #eee; 
 border-radius: 8px; 
@@ -234,7 +234,7 @@ box-sizing: border-box;">\n`;
               person?.color
             )} 50%);"></div>
     </div>
-    <div style="max-width: 150px; 
+    <div style="max-width: 60%; 
     box-sizing: border-box; 
     font-size: 0.8rem; 
     padding: 0.5rem; 
@@ -256,141 +256,6 @@ box-sizing: border-box;">\n`;
           );
         }
       }
-
-      prev.css =
-        `
-  @import url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo.css");
-
-.ChatBox {
-
-}
-
-.ChatBox, .ChatBox * { 
-    font-family: "Apple SD Gothic Neo"; 
-} 
-
-.Chat { 
-    
-} 
-
-.Chat > div:first-child { 
-    width: 50px; 
-    text-align: center; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 0.2rem; -----
-} 
-
-.Chat > div:first-child > div:first-child { 
-    width: 2rem; 
-    height: 2rem; 
-    background: #000; 
-    border: 2px solid #eee; 
-    overflow: hidden; 
-    position: relative; ----
-} 
-
-.Chat > div:first-child > div:first-child img { 
-    height: 2rem; -----
-} 
-
-.Chat > div:first-child > div:first-child label { 
-    width: 2rem; 
-    height: 2rem; 
-    backdrop-filter: brightness(0.4); 
-    display: none; 
-    position: absolute; ----
-} 
-
-.Chat > div:first-child > div:first-child:hover label { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;----
-} 
-
-.Chat > div:first-child > div:first-child #edit { 
-    height: 1rem; 
-    width: 1rem; ----
-} 
-
-.Chat > div:first-child > div:first-child > input { 
-    display: none; ----
-}
-
-.Chat > div:first-child > div:nth-child(2) {
-    font-size: 0.9rem; ---
-}
-
-.Chat > div:nth-child(2) { 
-    font-size: 0.6rem; 
-    color: #eee; ----
-} 
-
-.Chat > div:nth-child(2) { 
-    display: flex; 
-    gap: 0.4rem; 
-    align-items: stretch; -----
-} 
-
-.Chat > div:nth-child(2) > input { 
-    width: 0; 
-    height: 0; 
-    padding: 0; 
-    border: 0; -----
-}
-
-.Chat > div:nth-child(2) > div:last-child {
-    font-size: 0.6rem;
-    display: flex;
-    align-items: flex-end;
-}
-
-.Tail { 
-    width: 0.7rem; 
-    height: 0.7rem; 
-    transform: rotate(45deg); 
-    border: 2px solid #eee; 
-    border-top: 0; 
-    border-right: 0; 
-    position: relative; 
-    margin-left: -0.5rem; 
-    right: -0.85rem; 
-    position: relative;
-    z-index: 1; ----
-} 
-
-.TailCon {
-    display: flex;
-    align-items: center; ------
-}
-
-.Message { 
-    max-width: 150px; 
-    box-sizing: border-box; 
-    font-size: 0.8rem; 
-    padding: 0.5rem; 
-    border-radius: 8px; 
-    border: 2px solid #eee; 
-    word-break: break-all;
-    overflow-x: scroll; ------
-}
-
-.Message::-webkit-scrollbar {
-  display: none;
-}
-
-.Message img {
-    position: relative;
-    z-index: 2;
-    height: 5rem;
-    border-radius: 8px;
-}
-` +
-        [...tailSet].join(`\n`) +
-        [...msgSet].join(`\n`);
-
       prev.html = htmlFront + htmlMid.join("") + htmlBack;
       return prev;
     });
