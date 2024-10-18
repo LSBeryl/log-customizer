@@ -142,7 +142,7 @@ box-sizing: border-box;">\n`;
     border: 2px solid #eee; 
     overflow: hidden; 
     position: relative; ">
-        <img src="프로필_사진_주소" style="height: 2rem;" />
+        <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
       <div style="font-size: 0.9rem;">${parsedData.name}</div>
     </div>
@@ -209,7 +209,7 @@ box-sizing: border-box;">\n`;
     border: 2px solid #eee; 
     overflow: hidden; 
     position: relative; ">
-        <img src="프로필_사진_주소" style="height: 2rem;" />
+        <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
       <div style="font-size: 0.9rem;">${parsedData.name}</div>
     </div>
