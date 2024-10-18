@@ -129,7 +129,7 @@ box-sizing: border-box;">\n`;
     display: flex; 
     gap: 0.2rem;
     align-items: center;">
-    <div style="width: 50px; 
+    <div style=" 
     text-align: center; 
     display: flex; 
     flex-direction: column; 
@@ -144,7 +144,9 @@ box-sizing: border-box;">\n`;
     position: relative; ">
         <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div style="font-size: 0.9rem;">${parsedData.name}</div>
+      <div style="font-size: 0.5rem; max-width: 2rem; word-break: break-all;">${
+        parsedData.name
+      }</div>
     </div>
     <div style="font-size: 0.6rem; 
     color: #eee;
@@ -196,7 +198,7 @@ box-sizing: border-box;">\n`;
     display: flex; 
     gap: 0.2rem;
     align-items: center;">
-    <div style="width: 50px; 
+    <div style=" 
     text-align: center; 
     display: flex; 
     flex-direction: column; 
@@ -211,7 +213,9 @@ box-sizing: border-box;">\n`;
     position: relative; ">
         <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div style="font-size: 0.9rem;">${parsedData.name}</div>
+      <div style="font-size: 0.5rem; max-width: 2rem; word-break: break-all;">${
+        parsedData.name
+      }</div>
     </div>
     <div style="font-size: 0.6rem; 
     color: #eee;
@@ -606,7 +610,6 @@ const Chat = styled.div`
   gap: 0.2rem;
   & > div {
     &:nth-child(1) {
-      width: 50px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -645,7 +648,9 @@ const Chat = styled.div`
         }
       }
       & > div:nth-child(2) {
-        font-size: 0.6rem;
+        word-break: break-all;
+        max-width: 2rem;
+        font-size: 0.5rem;
         color: #eee;
       }
     }
