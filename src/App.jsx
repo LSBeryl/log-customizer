@@ -31,29 +31,31 @@ export default function App() {
   }
 
   function changeColor(hex) {
-    hex = hex.replace("#", "");
+    if (hex) {
+      hex = hex.replace("#", "");
 
-    let r = parseInt(hex.substring(0, 2), 16);
-    let g = parseInt(hex.substring(2, 4), 16);
-    let b = parseInt(hex.substring(4, 6), 16);
+      let r = parseInt(hex.substring(0, 2), 16);
+      let g = parseInt(hex.substring(2, 4), 16);
+      let b = parseInt(hex.substring(4, 6), 16);
 
-    r = Math.floor(r * 0.7);
-    g = Math.floor(g * 0.7);
-    b = Math.floor(b * 0.7);
+      r = Math.floor(r * 0.7);
+      g = Math.floor(g * 0.7);
+      b = Math.floor(b * 0.7);
 
-    const newHex =
-      "#" +
-      ((1 << 24) + (r << 16) + (g << 8) + b)
-        .toString(16)
-        .slice(1)
-        .toUpperCase();
+      const newHex =
+        "#" +
+        ((1 << 24) + (r << 16) + (g << 8) + b)
+          .toString(16)
+          .slice(1)
+          .toUpperCase();
 
-    return newHex;
+      return newHex;
+    }
   }
 
   async function copyToClipboard() {
     try {
-      await navigator.clipboard.writeText(isHtmlVisible ? code.html : code.css);
+      await navigator.clipboard.writeText(code.html);
       alert("코드가 복사되었습니다!");
     } catch (err) {
       console.error("Failed to copy: ", err);
@@ -104,7 +106,14 @@ export default function App() {
       }
       const tailSet = new Set(tailColors);
       const msgSet = new Set(msgColors);
-      const htmlFront = `<div class="ChatBox">\n`;
+      const htmlFront = `<div style="background: #000;
+width: 330px; 
+height: 500px; 
+color: #eee; 
+border-radius: 8px; 
+padding: 1rem; 
+overflow-y: scroll; 
+box-sizing: border-box;">\n`;
       const htmlMid = [];
       const htmlBack = `</div>`;
 
@@ -116,44 +125,131 @@ export default function App() {
 
         if (parsedData.msg === "사진") {
           htmlMid.push(
-            `<div class="Chat">
-    <div>
-      <div>
-        <img src="프로필_사진_주소" />
+            `<div style="margin-block: 1rem; 
+    display: flex; 
+    gap: 0.2rem;
+    align-items: center;">
+    <div style="width: 50px; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 0.2rem; ">
+      <div style="width: 2rem; 
+    height: 2rem; 
+    background: #000; 
+    border: 2px solid #eee; 
+    overflow: hidden; 
+    position: relative; ">
+        <img src="프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div>${parsedData.name}</div>
+      <div style="font-size: 0.9rem;">${parsedData.name}</div>
     </div>
-    <div>
-      <div class="TailCon"><div class="Tail TailColor${
-        person?.color.split("#")[1]
-      }"></div>
+    <div style="font-size: 0.6rem; 
+    color: #eee;
+    display: flex; 
+    gap: 0.4rem; 
+    align-items: stretch;">
+      <div style="display: flex;
+    align-items: center;"><div style="width: 0.7rem; 
+    height: 0.7rem; 
+    transform: rotate(45deg); 
+    border: 2px solid #eee; 
+    border-top: 0; 
+    border-right: 0; 
+    position: relative; 
+    margin-left: -0.5rem; 
+    right: -0.85rem; 
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, ${person?.color} 50%, ${changeColor(
+              person?.color
+            )} 50%);"></div>
     </div>
-    <div class="Message MsgColor${person?.color.split("#")[1]}">
-      <img src="채팅_사진_주소" />
+    <div style="max-width: 150px; 
+    box-sizing: border-box; 
+    font-size: 0.8rem; 
+    padding: 0.5rem; 
+    border-radius: 8px; 
+    border: 2px solid #eee; 
+    word-break: break-all;
+    overflow-x: hidden;
+    background: linear-gradient(180deg, ${person?.color} 50%, ${changeColor(
+              person?.color
+            )} 50%);">
+      <img src="채팅_사진_주소" style="position: relative;
+    z-index: 2;
+    height: 5rem;
+    border-radius: 8px;"/>
     </div>
-    <div>${parsedData.time}</div>
+    <div style="font-size: 0.6rem;
+    display: flex;
+    align-items: flex-end;">${parsedData.time}</div>
   </div>
 </div>
 `
           );
         } else {
           htmlMid.push(
-            `<div class="Chat">
-    <div>
-      <div>
-        <img src="프로필_사진_주소" />
+            `<div style="margin-block: 1rem; 
+    display: flex; 
+    gap: 0.2rem;
+    align-items: center;">
+    <div style="width: 50px; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 0.2rem; ">
+      <div style="width: 2rem; 
+    height: 2rem; 
+    background: #000; 
+    border: 2px solid #eee; 
+    overflow: hidden; 
+    position: relative; ">
+        <img src="프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div>${parsedData.name}</div>
+      <div style="font-size: 0.9rem;">${parsedData.name}</div>
     </div>
-    <div>
-      <div class="TailCon"><div class="Tail TailColor${
-        person?.color.split("#")[1]
-      }"></div>
+    <div style="font-size: 0.6rem; 
+    color: #eee;
+    display: flex; 
+    gap: 0.4rem; 
+    align-items: stretch;">
+      <div style="display: flex;
+    align-items: center;"><div style="width: 0.7rem; 
+    height: 0.7rem; 
+    transform: rotate(45deg); 
+    border: 2px solid #eee; 
+    border-top: 0; 
+    border-right: 0; 
+    position: relative; 
+    margin-left: -0.5rem; 
+    right: -0.85rem; 
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, ${person?.color} 50%, ${changeColor(
+              person?.color
+            )} 50%);"></div>
     </div>
-    <div class="Message MsgColor${person?.color.split("#")[1]}">
+    <div style="max-width: 150px; 
+    box-sizing: border-box; 
+    font-size: 0.8rem; 
+    padding: 0.5rem; 
+    border-radius: 8px; 
+    border: 2px solid #eee; 
+    word-break: break-all;
+    overflow-x: hidden;
+    background: linear-gradient(180deg, ${person?.color} 50%, ${changeColor(
+              person?.color
+            )} 50%);">
       ${parsedData.msg}
     </div>
-    <div>${parsedData.time}</div>
+    <div style="font-size: 0.6rem;
+    display: flex;
+    align-items: flex-end;">${parsedData.time}</div>
   </div>
 </div>
 `
@@ -162,15 +258,11 @@ export default function App() {
       }
 
       prev.css =
-        `.ChatBox {
-    background: #000;
-    width: 330px; 
-    height: 500px; 
-    color: #eee; 
-    border-radius: 8px; 
-    padding: 1rem; 
-    overflow-y: scroll; 
-    box-sizing: border-box; 
+        `
+  @import url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo.css");
+
+.ChatBox {
+
 }
 
 .ChatBox, .ChatBox * { 
@@ -178,10 +270,7 @@ export default function App() {
 } 
 
 .Chat { 
-    margin-block: 1rem; 
-    display: flex; 
-    gap: 0.2rem;
-    align-items: center;
+    
 } 
 
 .Chat > div:first-child { 
@@ -191,7 +280,7 @@ export default function App() {
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
-    gap: 0.2rem; 
+    gap: 0.2rem; -----
 } 
 
 .Chat > div:first-child > div:first-child { 
@@ -200,11 +289,11 @@ export default function App() {
     background: #000; 
     border: 2px solid #eee; 
     overflow: hidden; 
-    position: relative; 
+    position: relative; ----
 } 
 
 .Chat > div:first-child > div:first-child img { 
-    height: 2rem; 
+    height: 2rem; -----
 } 
 
 .Chat > div:first-child > div:first-child label { 
@@ -212,44 +301,44 @@ export default function App() {
     height: 2rem; 
     backdrop-filter: brightness(0.4); 
     display: none; 
-    position: absolute; 
+    position: absolute; ----
 } 
 
 .Chat > div:first-child > div:first-child:hover label { 
     display: flex; 
     align-items: center; 
-    justify-content: center;
+    justify-content: center;----
 } 
 
 .Chat > div:first-child > div:first-child #edit { 
     height: 1rem; 
-    width: 1rem; 
+    width: 1rem; ----
 } 
 
 .Chat > div:first-child > div:first-child > input { 
-    display: none; 
+    display: none; ----
 }
 
 .Chat > div:first-child > div:nth-child(2) {
-    font-size: 0.9rem;
+    font-size: 0.9rem; ---
 }
 
 .Chat > div:nth-child(2) { 
     font-size: 0.6rem; 
-    color: #eee; 
+    color: #eee; ----
 } 
 
 .Chat > div:nth-child(2) { 
     display: flex; 
     gap: 0.4rem; 
-    align-items: stretch; 
+    align-items: stretch; -----
 } 
 
 .Chat > div:nth-child(2) > input { 
     width: 0; 
     height: 0; 
     padding: 0; 
-    border: 0; 
+    border: 0; -----
 }
 
 .Chat > div:nth-child(2) > div:last-child {
@@ -269,12 +358,12 @@ export default function App() {
     margin-left: -0.5rem; 
     right: -0.85rem; 
     position: relative;
-    z-index: 1;
+    z-index: 1; ----
 } 
 
 .TailCon {
     display: flex;
-    align-items: center;
+    align-items: center; ------
 }
 
 .Message { 
@@ -285,7 +374,7 @@ export default function App() {
     border-radius: 8px; 
     border: 2px solid #eee; 
     word-break: break-all;
-    overflow-x: scroll;
+    overflow-x: scroll; ------
 }
 
 .Message::-webkit-scrollbar {
@@ -477,15 +566,16 @@ export default function App() {
               >
                 HTML
               </Button>
-              <Button
+              {/* <Button
                 active={+!isHtmlVisible}
                 onClick={() => setIsHtmlVisible(false)}
               >
                 CSS
-              </Button>
+              </Button> */}
             </ButtonContainer>
             <CodeContent>
-              {isHtmlVisible ? <pre>{code.html}</pre> : <pre>{code.css}</pre>}
+              {/* {isHtmlVisible ? <pre>{code.html}</pre> : <pre>{code.css}</pre>} */}
+              <pre>{code.html}</pre>
               <CopyButton
                 onClick={() => {
                   copyToClipboard();
