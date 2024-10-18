@@ -138,7 +138,7 @@ box-sizing: border-box;">\n`;
     gap: 0.2rem; ">
       <div style="width: 2rem; 
     height: 2rem; 
-    background: #000; 
+    background: ${person?.color};
     border: 2px solid #eee; 
     overflow: hidden; 
     position: relative; ">
@@ -205,7 +205,7 @@ box-sizing: border-box;">\n`;
     gap: 0.2rem; ">
       <div style="width: 2rem; 
     height: 2rem; 
-    background: #000; 
+    background: ${person?.color}; 
     border: 2px solid #eee; 
     overflow: hidden; 
     position: relative; ">
