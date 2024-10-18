@@ -234,7 +234,7 @@ box-sizing: border-box;">\n`;
               person?.color
             )} 50%);"></div>
     </div>
-    <div style="max-width: 60%; 
+    <div style="max-width: 80%; 
     box-sizing: border-box; 
     font-size: 0.8rem; 
     padding: 0.5rem; 
