@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "YOUAREMYSUNSHINE";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff")
+    format("woff");
+}
+
+* {
+  font-family: "YOUAREMYSUNSHINE";
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: #292929;
+  overflow-x: hidden;
+}
