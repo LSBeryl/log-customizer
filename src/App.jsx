@@ -144,7 +144,7 @@ box-sizing: border-box;">\n`;
     position: relative; ">
         <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div style="font-size: 0.6rem; max-width: 2rem; word-break: break-all;">${
+      <div style="font-size: 0.8rem; max-width: 2rem; word-break: break-all;">${
         parsedData.name
       }</div>
     </div>
@@ -213,7 +213,7 @@ box-sizing: border-box;">\n`;
     position: relative; ">
         <img src="${parsedData.name}_프로필_사진_주소" style="height: 2rem;" />
       </div>
-      <div style="font-size: 0.6rem; max-width: 2rem; word-break: break-all;">${
+      <div style="font-size: 0.8rem; max-width: 2rem; word-break: break-all;">${
         parsedData.name
       }</div>
     </div>
