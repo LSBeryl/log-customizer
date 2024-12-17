@@ -290,17 +290,22 @@ box-sizing: border-box;">\n`;
         <div>
           <div
             onClick={() => {
-              for (const v of log.split("\n")) {
-                if (parseMessage(v) == null) {
-                  alert(
-                    "형식을 제대로 맞춰주세요. (마지막 채팅 이후 줄바꿈이 있다면 지워주세요!)"
-                  );
-                  return;
-                }
-              }
+              // for (const v of log.trim().split("\n")) {
+              //   if (parseMessage(v) == null) {
+              //     alert(
+              //       "형식을 제대로 맞춰주세요. (마지막 채팅 이후 줄바꿈이 있다면 지워주세요!)"
+              //     );
+              //     return;
+              //   }
+              // }
 
               setPeople([]);
-              setLogArr(log.split("\n").map((v) => parseMessage(v)));
+              setLogArr(
+                log
+                  .trim()
+                  .split("\n")
+                  .map((v) => parseMessage(v))
+              );
             }}
           >
             <ArrowRight size={16} color={log ? "#1d2532" : "#aaa"} />
